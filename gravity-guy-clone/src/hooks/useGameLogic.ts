@@ -182,20 +182,16 @@ export const useGameLogic = (canvasWidth: number, canvasHeight: number) => {
         nextPlayer.velocityY += nextPlayer.gravity;
         nextPlayer.y += nextPlayer.velocityY;
         
-        let onPlatform = false;
         for (const p of updatedPlatforms) {
             if (nextPlayer.x < p.x + p.width && nextPlayer.x + nextPlayer.width > p.x) {
                 if (nextPlayer.velocityY > 0 && nextPlayer.y + nextPlayer.height >= p.y && nextPlayer.y + nextPlayer.height <= p.y + p.height) {
                     nextPlayer.y = p.y - nextPlayer.height;
                     nextPlayer.velocityY = 0;
-                    onPlatform = true;
                     break;
                 }
                 if (nextPlayer.velocityY < 0 && nextPlayer.y <= p.y + p.height && nextPlayer.y >= p.y) {
                     nextPlayer.y = p.y + p.height;
                     nextPlayer.velocityY = 0;
-                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                    onPlatform = true;
                     break;
                 }
             }
