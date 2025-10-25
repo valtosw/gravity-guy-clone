@@ -79,7 +79,7 @@ const startScreenButtons = {
       buttonStyle.gap,
     y: 300,
     ...buttonStyle,
-    text: "Medium",
+    text: "MID",
     difficulty: Difficulty.Medium,
     color: "#F8961E",
   },
